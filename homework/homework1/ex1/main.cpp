@@ -13,9 +13,7 @@ using namespace std;
 int main() {
 
     mpz_class k = 0;
-    mpq_class a = 1;
-    mpq_class b = 0;
-    mpq_class sum = 0;
+    mpq_class a = 1, b = 0, sum = 0;
 
     mpq_class ep(1, 10);
     for (int i = 0; i < 4; i++) {
@@ -34,7 +32,7 @@ int main() {
 
     mpf_class num(sum.get_num(), 40000);
     mpf_class den(sum.get_den(), 40000);
-    mpf_class pi = mpf_class(num / den);
+    mpf_class pi(num / den);
     cout << setprecision(10001) << pi << endl;
 
     ofstream out("pi.txt");
