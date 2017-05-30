@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{xcolor}
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Problem \arabic{section}.}
+\allowdisplaybreaks[4]
+\lstset{
+	basicstyle=\tt,
+	numbers=left,
+	rulesepcolor=\color{red!20!green!20!blue!20},
+	escapeinside=``,
+	xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
+	framexleftmargin=1.5mm,
+	frame=shadowbox,
+	backgroundcolor=\color[RGB]{245,245,244},
+	keywordstyle=\color{blue}\bfseries,
+	identifierstyle=\bf,
+	numberstyle=\color[RGB]{20,20,20},
+	commentstyle=\it\color[RGB]{96,96,96},
+	stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+	showstringspaces=false,
+	breaklines=true
+}
+\title{VE311 Homework 1}
+\author{Liu Yihao 515370910207}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{}
+
+This problem is written in C++, with CMake and the GNU Multiple Precision Arithmetic (GMP) Library in order to simplify the calculation.
+
+For the calculation of $\pi$, Bailey-Borwein-Plouffe Formula is used
+$$\pi=\sum_{k=0}^\infty\frac{1}{16^k}\left(\frac{4}{8k+1}-\frac{2}{8k+4}-\frac{1}{8k+5}-\frac{1}{8k+6}\right)$$
+
+For the calculation of $e$, Taylor series is used
+$$e=1+\sum_{k=1}^\infty\frac{1}{k!}$$
+
+Note that the last digit is fixed in the program. The code and results are attached at the end of the report.
+
+\section{}
+
+According to the Peano axioms, we know these definitions of natural numbers:
+\begin{enumerate}
+\item 0 is a natural number.
+\item For every natural number $x$, $x = x$. That is, equality is reflexive.
+\item For all natural numbers $x$ and $y$, if $x = y$, then $y = x$. That is, equality is symmetric.
+\item For all natural numbers $x$, $y$ and $z$, if $x = y$ and $y = z$, then $x = z$. That is, equality is transitive.
+\item For all $a$ and $b$, if $b$ is a natural number and $a = b$, then $a$ is also a natural number. That is, the natural numbers are closed under equality.
+\end{enumerate}
+
+The remaining axioms define the arithmetical properties of the natural numbers. The naturals are assumed to be closed under a single-valued ``successor'' function $S$, such that $S(n) = n+1$.
+\begin{enumerate}
+\item For every natural number $n$, $S(n)$ is a natural number.
+\item For all natural numbers $m$ and $n$, $m = n$ if and only if $S(m) = S(n)$. That is, $S$ is an injection.
+\item For every natural number $n$, $S(n) = 0$ is false. That is, there is no natural number whose successor is 0.
+\end{enumerate}
+
+Addition is a function that maps two natural numbers (two elements of $N$) to another one. It is defined recursively as:
+\begin{align*}
+a+0&=a\\
+a+S(b)&=S(a+b)
+\end{align*}
+
+Then we can demonstrate $1+1$ algebraically
+\begin{align*}
+1+1&=1+S(0)\\
+&=S(1+0)\\
+&=S(1)\\
+&=2
+\end{align*}
+
+\section{}
+\begin{enumerate}
+\item
+Since the voltage source is steady, we can treat the capacitor as open circuit and the inductor as short circuit.
+$$V_L=0$$
+\item
+First, suppose $V_2$ doesn't exists.
+$$V_0=123\angle90^\circ{\rm\,V},\omega=377{\rm\,rad/s}$$
+$$i_1=\frac{V_0}{3+\frac{2j\omega(4+2/j\omega)}{2j\omega+4+2/j\omega}}$$
+$$i_L=i_1\cdot\frac{4+2/j\omega}{2j\omega+4+2/j\omega}=\frac{(4+2/j\omega)V_0}{3(2j\omega+4+2/j\omega)+2j\omega(4+2/j\omega)}=\frac{(4+2/j\omega)V_0}{14j\omega+16+6/j\omega}$$
+$$i_L=0.096\angle0.098^\circ{\rm\,A}$$
+Second, suppose $V_0$ doesn't exists. Since the voltage source is steady, we can treat the capacitor as open circuit and the inductor as short circuit.
+$$i_L'=0$$
+So $$i_L=0.096\angle0.098^\circ{\rm\,A}$$
+\end{enumerate}
+
+\newpage
+\section*{Attachments}
+
+\begin{align*}
+\pi=\input{ex1/pi.txt}
+\end{align*}
+\begin{align*}
+e=\input{ex1/e.txt}
+\end{align*}
+
+\paragraph{CMakeLists.txt}\ 
+\lstinputlisting{ex1/CMakeLists.txt}
+
+\paragraph{main.cpp}\ 
+\lstset{language=C++}
+\lstinputlisting{ex1/main.cpp}
+
+\end{document}
