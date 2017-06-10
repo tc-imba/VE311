@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{indentfirst}
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Problem \arabic{section}.}
+%\allowdisplaybreaks[4]
+\newcommand{\Omegacm}{{\rm\,\Omega\cdot cm}}
+\newcommand{\unit}[1]{{\rm\,#1}}
+
+\title{VE311 Homework 3}
+\author{Liu Yihao 515370910207}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{}
+\begin{enumerate}[(a)]
+\item
+$$\phi_j=V_T\ln\frac{N_AN_D}{n_i^2}=0.025\unit{V}\cdot\ln\frac{10^{19}\unit{cm^{-3}}\cdot10^{18}\unit{cm^{-3}}}{(10^{10}\unit{cm^{-3}})^2}\approx0.979\unit{V}$$
+\begin{align*}
+w_{do}&=\sqrt{\frac{2\varepsilon_s}{q}\left(\frac{1}{N_A}+\frac{1}{N_D}\right)\phi_j}\\
+&=\sqrt{\frac{2\cdot11.7\cdot8.85\times10^{-14}\unit{F/cm}}{1.60\times10^{-19}\unit{C}}\left(\frac{1}{10^{19}\unit{cm^{-3}}}+\frac{1}{10^{18}\unit{cm^{-3}}}\right)0.979\unit{V}}\\
+&\approx3.73\times10^{-2}\unit{\mu m}
+\end{align*}
+\item
+$$x_p=\frac{w_{do}}{1+\dfrac{N_A}{N_D}}=\frac{3.73\times10^{-2}\unit{\mu m}}{1+\dfrac{10^{19}\unit{cm^{-3}}}{10^{18}\unit{cm^{-3}}}}\approx3.39\times10^{-3}\unit{\mu m}$$
+$$x_n=\frac{w_{do}}{1+\dfrac{N_D}{N_A}}=\frac{3.73\times10^{-2}\unit{\mu m}}{1+\dfrac{10^{18}\unit{cm^{-3}}}{10^{19}\unit{cm^{-3}}}}\approx3.39\times10^{-2}\unit{\mu m}$$
+\item
+$$\phi_j=0.979\unit{V}$$
+\item
+$$E_{MAX}=\frac{qN_Ax_p}{\varepsilon_s}=\frac{1.60\times10^{-19}\unit{C}\cdot10^{19}\unit{cm^{-3}}\cdot3.39\times10^{-3}\unit{\mu m}}{11.7\cdot8.85\times10^{-14}\unit{F/cm}}\approx523\unit{kV/cm}$$
+\end{enumerate}
+
+\section{}
+\begin{enumerate}[(a)]
+\item
+$$w_d=w_{do}\sqrt{1+\frac{v_R}{\phi_j}}=3w_{do}$$
+$$v_R=8\phi_j=8\cdot0.85\unit{V}=6.8\unit{V}$$
+\item
+$$w_d=w_{do}\sqrt{1+\frac{v_R}{\phi_j}}=0.4\unit{\mu m}\cdot\sqrt{1+\frac{7\unit{V}}{0.85\unit{V}}}\approx1.22\unit{\mu m}$$
+\end{enumerate}
+
+\section{}
+$$j=\sigma E$$
+$$E=\frac{j}{\sigma}=\frac{5000\unit{A/cm^2}}{1/2.5\unit{\Omega^{-1}\cdot cm^{-1}}}=12.5\unit{kV/cm}$$
+
+\section{}
+
+
+\end{document}
