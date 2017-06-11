@@ -70,7 +70,9 @@ $$\rho=\frac{1}{\sigma}=\frac{1}{q(n\mu_n+p\mu_p)}$$
 Since we want to produce extrinsic silicon with a higher resistivity than that of intrinsic silicon, we should let
 $$n\mu_n(N_T)+p\mu_p(N_T)<n_i[\mu_n(0)+\mu_p(0)]$$
 
-Suppose $N_T=N_A$, we can get $n=p=n_i$. So the equation above can be simplified as
+where $$N_T=N_D+N_A$$
+
+Suppose $N_D=N_A$, we can get $n=p=n_i$. So the equation above can be simplified as
 $$\mu_n(N_T)+\mu_p(N_T)<\mu_n(0)+\mu_p(0)$$
 
 And we know that the functions $\mu_n(N_T)$ and $\mu_p(N_T)$ are decreasing when $N_T$ is increasing, which means when $N_T>0$,
@@ -78,7 +80,7 @@ And we know that the functions $\mu_n(N_T)$ and $\mu_p(N_T)$ are decreasing when
 $$\mu_n(N_T)<\mu_n(0)$$
 $$\mu_p(N_T)<\mu_p(0)$$
 
-So the equation always sets when $N_T>0$, conceptually. In conclusion, when $N_T=N_A>0$, it is conceptually to produce extrinsic silicon with a higher resistivity than that of intrinsic silicon.
+So the equation always sets when $N_T>0$, conceptually. In conclusion, when $N_D=N_A>0$, it is conceptually to produce extrinsic silicon with a higher resistivity than that of intrinsic silicon.
 
 \section{}
 $$V_T=\frac{kT}{q}=8.62\times10^{-5}\cdot T\unit{(V)}$$
@@ -101,8 +103,8 @@ $T$ (K) & $V_T$ (mV) \\\hline
 \section{}
 \begin{align*}
 j_n^{diff}&=qD_n\frac{\partial n}{\partial x}=qV_T\mu_n\frac{\partial n}{\partial x}\\
-&=1.60\times10^{-19}\unit{C}\cdot25.9\times10^{-3}\unit{V}\cdot350\unit{cm^2/V\cdot s}\cdot-\frac{10^{18}\unit{cm^{-3}}}{0.5\times10^{-4}\unit{cm}}\\
-&=-2.901\times10^{-4}\unit{A/cm^2}
+&=1.60\times10^{-19}\unit{C}\cdot0.025\unit{V}\cdot350\unit{cm^2/V\cdot s}\cdot-\frac{10^{18}\unit{cm^{-3}}}{0.5\times10^{-4}\unit{cm}}\\
+&=-2.80\times10^{4}\unit{A/cm^2}
 \end{align*}
 
 
