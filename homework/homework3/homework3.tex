@@ -167,19 +167,19 @@ $$V_D=0,I_D=-25\unit{V}/10\unit{k\Omega}=-2.5\unit{mA}{\rm\quad and\quad}V_D=-25
 
 \section{}
 When $R_S=0$, assuming $V_{on}=1\unit{V}$
-$$V_{dc}=V_p-V_{on}=10\unit{V}-1\unit{V}=9\unit{V}$$
+$$V_{dc}=-(V_p-V_{on})=-(10\unit{V}-1\unit{V})=-9\unit{V}$$
 
 $$\left\{\begin{aligned}
 V_r&=V_{dc}\left[1-\exp\left(-\frac{T-\Delta T}{RC}\right)\right]\\
-\Delta T&=\frac{1}{\omega}\sqrt{\frac{2V_r}{V_p}}
+\Delta T&=\frac{1}{\omega}\sqrt{\frac{2|V_r|}{V_p}}
 \end{aligned}\right.\Longrightarrow\left\{\begin{aligned}
-V_r&=6.01\unit{V}\\
+V_r&=-6.01\unit{V}\\
 \Delta T&=2.91\times10^{-3}\unit{s}
 \end{aligned}\right.$$
 
-$$I_P=I_{dc}\frac{2T}{\Delta T}=\frac{2V_{dc}T}{R\Delta T}=\frac{2\cdot9\unit{V}\cdot\dfrac{2\pi}{120\pi}\unit{s}}{0.025\unit{\Omega}\cdot2.91\times10^{-3}\unit{s}}\approx4123\unit{A}$$
+$$I_P=I_{dc}\frac{2T}{\Delta T}=\frac{2|V_{dc}|T}{R\Delta T}=\frac{2\cdot9\unit{V}\cdot\dfrac{2\pi}{120\pi}\unit{s}}{0.025\unit{\Omega}\cdot2.91\times10^{-3}\unit{s}}\approx4123\unit{A}$$
 
-When $R_S=0.02\unit{\Omega}$,
+%When $R_S=0.02\unit{\Omega}$,
 
 \section{}
 assuming $V_{on}=1\unit{V}$,
@@ -187,3 +187,4 @@ $$V_1=V_p-V_{on}=40\unit{V}-1\unit{V}=39\unit{V}$$
 $$V_2=-(V_p-V_{on})=-(40\unit{V}-1\unit{V})=-39\unit{V}$$
 
 \end{document}
+|
