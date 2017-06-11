@@ -95,12 +95,12 @@ V_D&=V_T\ln\left(1+\frac{I_D}{I_S}\right)=\frac{kT}{q}\ln\left(1+\frac{I_D}{I_S}
 &\approx0.758\unit{V}
 \end{align*}
 \item
-$$\frac{dV_D}{dT}=\frac{v_D-V_{GO}-3V_T}{T}=-2\unit{mV/K}$$
 \begin{align*}
-V_D&=T\frac{dV_D}{dT}+V_{GO}+3\frac{kT}{q}\\
-&=323\unit{K}\cdot-2\unit{mV/K}+1.12\unit{V}+3\cdot\frac{1.38\times10^{-23}\unit{J/K}\cdot323\unit{K}}{1.60\times10^{-19}\unit{C}}\\
-&\approx0.558\unit{V}
+V_D'&=V_D+\frac{dV_D}{dT}\cdot\Delta T\\
+&=0.758\unit{V}+-2\unit{mV/K}\cdot(50\unit{^\circ C}-30\unit{^\circ C})\\
+&=0.718\unit{V}
 \end{align*}
+
 \end{enumerate}
 
 \section{}
