@@ -86,7 +86,7 @@ So the $Q$ point is $(100\unit{\mu A},\ 9.7\unit{V})$.
 \draw (-3,0) -- (-3,-3);
 \draw (3,1) to [voltage source={direction info={volt=16},info'=$V_{DD}$}] (3,-3);
 \draw (3,1) to [resistor={ohm=3.9k,info'=$R_D$}] (0,1);
-\draw (0,-0.5) to [resistor={ohm=1k,info'=$R_S$}] (0,-3);
+\draw (0,-0.5) to [resistor={ohm=2k,info'=$R_S$}] (0,-3);
 \draw [very thick] (-0.5,0.4) -- (-0.5,-0.4);
 \draw (-3,-3) -- (3,-3) (0,1) -- (0,0.5) -- (-0.3, 0.5);
 \draw[-{Latex}] (-0.3,-0.5) -- (0,-0.5);
@@ -104,12 +104,17 @@ We can get $$V_{GS}+\frac{K_nR_s}{2}(V_{GS}-V_{TN})^2=0$$
 $$V_{GS}=V_{TN}=\frac{1}{K_nR_s}\left(\sqrt{1-2K_nR_sV_{TN}}-1\right)$$
 \begin{align*}
 I_D&=\frac{1}{2K_nR_s^2}\left(\sqrt{1-2K_nR_sV_{TN}}-1\right)^2\\
-&=\frac{1}{2\cdot400\unit{\mu A/V^2}\cdot(1\unit{k\Omega})^2}\left(\sqrt{1-2\cdot400\unit{\mu A/V^2}\cdot1\unit{k\Omega}\cdot-5\unit{V}}-1\right)^2\\
-&\approx1.91\unit{mA}
+&=\frac{1}{2\cdot400\unit{\mu A/V^2}\cdot(2\unit{k\Omega})^2}\left(\sqrt{1-2\cdot400\unit{\mu A/V^2}\cdot2\unit{k\Omega}\cdot-5\unit{V}}-1\right)^2\\
+&=1.25\unit{mA}
 \end{align*}
-$$V_{DS}=V_{DD}-I_D(R_D+R_S)=16\unit{V}-1.91\unit{mA}\cdot(3.9\unit{k\Omega}+1\unit{k\Omega})\approx6.64\unit{V}$$
+$$V_{DS}=V_{DD}-I_D(R_D+R_S)=16\unit{V}-1.25\unit{mA}\cdot(3.9\unit{k\Omega}+2\unit{k\Omega})=8.625\unit{V}$$
+\begin{align*}
+V_{GS}-V_{TN}&=\frac{1}{K_nR_s}\left(\sqrt{1-2K_nR_sV_{TN}}-1\right)\\
+&=\frac{1}{2\cdot400\unit{\mu A/V^2}\cdot2\unit{k\Omega}}\left(\sqrt{1-2\cdot400\unit{\mu A/V^2}\cdot2\unit{k\Omega}\cdot-5\unit{V}}-1\right)\\
+&=1.25\unit{V}<V_{DS}
+\end{align*}
 
-So the $Q$ point is $(1.91\unit{mA},\ 6.64\unit{V})$.
+So the $Q$ point is $(1.25\unit{mA},\ 8.625\unit{V})$, and it is in the saturated region.
 
 \section{}
 First, we draw the dc equivalent circuit:
