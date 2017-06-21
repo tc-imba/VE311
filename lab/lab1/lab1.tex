@@ -22,6 +22,8 @@
 	basicstyle=\normalsize,rulecolor=\color{brown}, 
 	numberstyle=\color[RGB]{20,20,20}
 }
+\newcommand{\unit}[1]{{\rm\,#1}}
+
 \begin{document}
 \vspace*{0.25cm}
 
@@ -47,7 +49,7 @@
 \sc{{Lab 1
 \vspace{0.5em}
 
-LTI Systems}}
+}}
 \end{large}
 \end{center}
 
@@ -73,64 +75,45 @@ Date: 17 June 2017
 
 \section{Objectives}
 \begin{itemize}
-	\item To become familiar with the laboratory equipment: power supply, signal generator, digital oscilloscope,
-computer data acquisition system (Scope Connect).
-	\item To review basic concepts of linear time-invariant systems.
-	\item To illustrate several possible ways to determine the impulse response of a physical system from measured
-data.
-	\item To use linearity, time-invariance and impulse response to compute the output of an LTI system when
-the input is a step, a pulse, or a more complicated signal. You will compare these calculations with
-actual measurements.
-	\item To measure the frequency response of an LTI system and compare against theory.
+	\item Test the behavior that the resistance has to temperature, humidity, high current and voltage.
+	\item Understand what happened when a series of capacitors behave at different conditions.
+	\item Analyze the behavior of a simple array of resistors.
 \end{itemize}
 
 \section{Experiment procedures}
 
-\subsection{Step Response}
-We are going to test the behavior that the resistance has to temperature, humidity,
-high current and voltage. By using a resistor of 220$\rm\Omega$, 10 kΩ and the closest to 1 Ω,
-perform the follow set of tests.
+\subsection{Resistor behavior}
+We are going to test the behavior that the resistance has to temperature, humidity, high current and voltage. By using a resistor of 220$\unit{\Omega}$, 10$\unit{k\Omega}$ and the closest to 1$\unit{\Omega}$, perform the follow set of tests.
 \begin{itemize}
-	\item Function generator:\\
-	Square wave \qquad Vpp: 1V \qquad frequency: 100Hz
-	\item Oscillator:\\
-	CH1: 200mV/div \qquad CH2: 200mV/div \qquad Time: 2ms
-	\item Bonus: Compare your results with the ideal case
+	\item  
+	By using a wave generator and an oscilloscope, measure the resistor response for
+a voltage of 1, 5, 10 and 15 V by sweeping the frequency from 10 Hz up to 50
+MHz in each case.
+	\item  
+	In each case heat or warm the resistance and see if there is any change in the
+oscilloscope signal.
+	\item
+	``Carefully'' reduce the temperature of the resistance and see what happen to the
+signal.
 \end{itemize}
 
-\subsection{Pulse Response}
+\subsection{Capacitors}
+The second part considers the use of capacitors. In here, we are going to use a series of
+capacitors and to understand what happened when they behave at different conditions.
+
 \begin{itemize}
-	\item Function generator: Pulse frequency: 100Hz
-	\begin{enumerate}
-		\item Width: 1ms \qquad A: 100mV
-		\item Width: 0.5ms \qquad A: 200mV
-	\end{enumerate}
+	\item
+	Use the capacitors: 0.1 $\unit{\mu F}$, 4.7 pF and 3.3$\unit{\mu F}$. Each one of the capacitors is to be in series with a 10 $\unit{k\Omega}$ resistor. By applying 1 $V_{pp}$ you’re going to sweep the frequency ranging from 50 MHz or the highest to 60 Hz.
+	\item
+	Invert the order of the devices and perform the same test.
 \end{itemize}
 
-\subsection{Ramp Response}
-\begin{itemize}
-	\item Function generator:\\
-	Ramp \qquad Vpp: 100mV \qquad frequency: 100Hz
-\end{itemize}
+\subsection{Array of resistors}
+Finally, with an inductor, we are going to perform a set of experiments. By using
+a simple array of a 10 kΩ resistor in series with an inductor, we’re going to analyze
+the behavior of the array. By using the wave generator, we are sweeping a range of
+frequencies from 50 MHz up to 1 Hz with a 1 $V_{pp}$ .
 
-\subsection{Sine Response}
-\begin{itemize}
-	\item Function generator: 10 Vpp
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			Frequency (Hz) & Vout / Vin & Time Shift & Phase Shift \\
-			\hline
-			50 &&&\\
-			\hline
-			500 &&&\\
-			\hline
-			5k &&&\\
-			\hline
-		\end{tabular}
-	\end{center}
-	\item Bonus: Compare your results with ideal case
-\end{itemize}
 
 \section{Experimental results}
 
