@@ -254,8 +254,8 @@ Output resistance:
 $$R_{out}=R_L\parallel\left(\frac{1}{g_{m2}}+\frac{R_{C1}\parallel R_{EQ2}}{\beta_{F2}}\right)=100\unit{k\Omega}\parallel\left(\frac{1}{8.52\unit{ms}}+\frac{16.98\unit{k\Omega}}{42}\right)\approx519\unit{\Omega}$$
 
 Midband voltage gain:
-$$A_{vt1}^{CS}\approx\frac{-g_{m1}(R_C\parallel R_{EQ}\parallel r_{\pi2})}{1+R_{E1}\cdot g_{m1}}=\frac{-9.64\unit{mS}\cdot(20\parallel112.5\parallel4.93)\unit{k\Omega}}{1+2\unit{k\Omega}\cdot9.64\unit{mS}}=-1.814$$
-$$A_{vt2}^{CS}\approx-g_{m2}R_L=-8.52\unit{mS}\cdot(20\parallel100)\unit{k\Omega}=-142$$
-$$A_v=A_{vt1}^{CS}\cdot A_{vt2}^{CS}\cdot\frac{R_G}{R_G+R_{in}}=-1.814\cdot-142\cdot\frac{180\unit{k\Omega}}{(180+33.47)\unit{k\Omega}}\approx217.2$$
+$$A_{vt1}^{CE}\approx\frac{-g_{m1}(R_C\parallel R_{EQ}\parallel r_{\pi2})}{1+R_{E1}\cdot g_{m1}}=\frac{-9.64\unit{mS}\cdot(20\parallel112.5\parallel4.93)\unit{k\Omega}}{1+2\unit{k\Omega}\cdot9.64\unit{mS}}=-1.814$$
+$$A_{vt2}^{CE}\approx-g_{m2}R_L=-8.52\unit{mS}\cdot(20\parallel100)\unit{k\Omega}=-142$$
+$$A_v=A_{vt1}^{CE}\cdot A_{vt2}^{CE}\cdot\frac{R_{in}}{R_I+R_{in}}=-1.814\cdot-142\cdot\frac{33.47\unit{k\Omega}}{(2+33.47)\unit{k\Omega}}\approx243$$
 \end{document}
 
