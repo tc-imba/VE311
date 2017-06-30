@@ -9,11 +9,14 @@
 \usepackage{indentfirst}
 \usepackage{listings}
 \usepackage{xcolor} 
+\usepackage{float}
 
 \usepackage{tikz}
 \usetikzlibrary{circuits.ee.IEC}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
+
+\usepackage{minted}
 
 \geometry{left=3.0cm,right=3.0cm,top=4.0cm,bottom=4.0cm}
 \allowdisplaybreaks[4]
@@ -83,237 +86,233 @@ Date: 23 June 2017
 
 \section{Objectives}
 \begin{itemize}
-	\item Test the behavior that the resistance has to temperature, humidity, high current and voltage.
-	\item Understand what happened when a series of capacitors behave at different conditions.
-	\item Analyze the behavior of a simple array of resistors.
+	\item Investigate the full behavior for the diode.
+	\item Calculating the minimum voltage to turn on the diode.
+	\item Analyze the behaviour of two diodes set back to back and face to face.
 \end{itemize}
 
 \section{Experiment procedures}
 
-\subsection{Resistor behavior}
-We are going to test the behavior that the resistance has to temperature, humidity, high current and voltage. By using a resistor of 220$\unit{\Omega}$, 10$\unit{k\Omega}$ and the closest to 1$\unit{\Omega}$, perform the follow set of tests.
-\begin{itemize}
-	\item  
-	By using a wave generator and an oscilloscope, measure the resistor response for
-a voltage of 1, 5, 10 and 15 V by sweeping the frequency from 10 Hz up to 50
-MHz in each case.
-	\item  
-	In each case heat or warm the resistance and see if there is any change in the
-oscilloscope signal.
-	\item
-	``Carefully'' reduce the temperature of the resistance and see what happen to the
-signal.
-\end{itemize}
+\subsection{Turn on voltage}
+According to the follow configuration, we should calculate which is the minimum voltage required to turn on the diode.
 
-\subsection{Capacitors}
-The second part considers the use of capacitors. In here, we are going to use a series of
-capacitors and to understand what happened when they behave at different conditions.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{imgs/intro-1.png}
+	\caption{This is a diode}
+	\label{fig-intro-1}
+\end{figure}
 
-\begin{itemize}
-	\item
-	Use the capacitors: 3.3$\unit{\mu F}$, 0.082 $\unit{\mu F}$ and 5 pF. Each one of the capacitors is to be in series with a 10 $\unit{k\Omega}$ resistor. By applying 1 $V_{pp}$ you’re going to sweep the frequency ranging from 50 MHz or the highest to 60 Hz.
-	\item
-	Invert the order of the devices and perform the same test.
-\end{itemize}
+\subsection{I-V character of Diode}
+The second part considers the use the following circuit to corroborate if theory at some point would be close to reality, by using a signal generator and oscilloscope. An $I-V$ curve should be got in this way.
 
-\subsection{Inductor}
-Finally, with an inductor, we are going to perform a set of experiments. By using
-a simple array of a 10 kΩ resistor in series with an inductor, we’re going to analyze
-the behavior of the array. By using the wave generator, we are sweeping a range of
-frequencies from 50 MHz up to 1 Hz with a 1 $V_{pp}$ .
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{imgs/intro-2.png}
+	\caption{Diode circuit}
+	\label{fig-intro-2}
+\end{figure}
+
+\subsection{Behavior of back-to-back diodes}
+The third part considers to put tow diodes back to back. We are required to measure the behavior of the system by sweeping it with the peak-to-peak
+ $A\sin(377t)$, where $A=1,2,5 and 10$.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{imgs/intro-3.png}
+	\caption{2 diodes back-to-back}
+	\label{fig-intro-3}
+\end{figure}
+
+\subsection{Behavior of face-to-face diodes}
+The fourth part analyze the same diodes with putting them face-to-face. The same simulation of peak-to-peak value should be applied in this part as well.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{imgs/intro-4.png}
+	\caption{2 diodes face-to-face}
+	\label{fig-intro-4}
+\end{figure}
 
 \newpage
-
 \section{Experimental results and discussion}
 
 \subsection{Turn on voltage}
 
+We use 2Vpp sine wave to turn on the diode, which was shown in Figure \ref{fig-1}.
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/scope_30.png}
+	\caption{Turn on voltage of the diode.}
+	\label{fig-1}
+\end{figure}
 
-We use the 10$\unit{k\Omega}$ resistor, which has the most apparent behavior. The voltage figure for the origin resistor was shown in Figure \ref{fig-1-1}.
-
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{imgs/scope_26.png}
-%	\caption{Origin voltage figure of $R=10\unit{k\Omega}$}
-%	\label{fig-1-1}
-%\end{figure}
-
-When the temperature was raised, the comparison of the origin figure and the new figure was shown in Figure \ref{fig-1-2}.
-
-%\begin{figure}[htbp]
-%	\centering
-%	\subfigure[origin]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_26.png}
-%		\label{fig-1-2-1}
-%	}
-%	\subfigure[higher temperature]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_27.png}
-%		\label{fig-1-2-2}
-%	}
-%	\caption{Comparison between origin figure and higher temperature}
-%	\label{fig-1-2}
-%\end{figure}
-
-We can find that when the temperature rises, the voltage on the source become slightly lower, which means that the resistance becomes lower.
+According to the figure, we found that the high voltage is 0.74 V, so the turn on voltage is 0.74 V.
 
 \newpage
-When the humidity was raised, the comparison of the origin figure and the new figure was shown in Figure \ref{fig-1-3}.
+\subsection{IV-Characteristics}
 
-%\begin{figure}[htbp]
-%	\centering
-%	\subfigure[origin]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_26.png}
-%		\label{fig-1-3-1}
-%	}
-%	\subfigure[higher humidity]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_28.png}
-%		\label{fig-1-3-2}
-%	}
-%	\caption{Comparison between origin figure and higher humidity}
-%	\label{fig-1-3}
-%\end{figure}
+We use a 10$\unit{k\Omega}$ resistor and the a diode to analyze the I-V character of diode. 
 
-We can find that when the humidity rises, the voltage on the source become slightly lower, which means that the resistance becomes lower.
+\subsubsection{AC Input}
+Under this circumstance, we firstly input a $1VPP$ $/sin$ wave, to form the "csv" file. With the file, the picture on the oscilloscope was shown in Figure \ref{fig-2-1}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/ac-csv.eps}
+	\caption{Curve of the csv file}
+	\label{fig-2-1}
+\end{figure}
+
+With the following equation:
+$$I_d=\frac{V_0-V_d}{R}$$
+
+The I-V curve of the diode can be shown in Figure \ref{fig-2-2}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/ac-iv.eps}
+	\caption{AC IV-Characteristics}
+	\label{fig-2-2}
+\end{figure}
+
 
 \newpage
 
-\subsection{Capacitors}
+According to the curve, the value of $V_{on}$ is around 0.5$V$.
 
-We choose two capacitors, 3.3$\unit{\mu F}$ and 0.082$\unit{\mu F}$ and use the follwing circuit.
+\subsubsection{DC analysis}
+In DC part, we input DC signal whose voltage ranges from 0 to 1$V$. By measuring the voltage of the diode, we successfully got  Table \ref{tab-2} 
 
-\begin{center}
-\begin{tikzpicture}[circuit ee IEC,set resistor graphic=var resistor IEC graphic]
-\draw (0,0) to [resistor={info=R}] (2,0);
-\draw (-2,0) to [capacitor={info=C}] (0,0);
-\draw (1,1) node (V) [draw,circle] {V};
-\draw (0,0) -- (0,1) -- (V) -- (2,1) -- (2,0);
-\draw (2,0) -- (3,0);
-\end{tikzpicture}
-\end{center}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    DC Voltage (V) & Resistance Voltage (mV) \\\hline
+    1	&   540.5   \\\hline
+    0.9	&   538     \\\hline
+    0.8	&   530.5   \\\hline
+    0.7	&   525     \\\hline
+    0.6	&   501     \\\hline
+    0.5	&   478.5   \\\hline
+    0.4	&   394.5   \\\hline
+    0.3	&   292     \\\hline
+    0.2	&   193     \\\hline
+    0.1	&   90.5    \\\hline
+    \end{tabular}
+    \caption{DC measurement of diode.}
+    \label{tab-2}
+\end{table}
 
-For the 3.3$\unit{\mu F}$ capacitor, the figure was shown in Figure \ref{fig-2-1}.
+Then the I-V character of diode was shown in Figure \ref{fig-2-3}
 
-%\begin{figure}[htbp]
-%	\centering
-%	\subfigure[60 Hz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_13.png}
-%		\label{fig-2-1-1}
-%	}
-%	\subfigure[10 kHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_14.png}
-%		\label{fig-2-1-2}
-%	}
-%	\subfigure[1 MHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_15.png}
-%		\label{fig-2-1-3}
-%	}
-%	\subfigure[10 MHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_16.png}
-%		\label{fig-2-1-4}
-%	}
-%	\caption{3.3$\unit{\mu F}$ capacitor}
-%	\label{fig-2-1}
-%\end{figure}
-
-In an RC circuit, we have the equation
-$$x(t)=K_1e^{-t/RC}+K_2$$
-
-In Figure \ref{fig-2-1-1}, ($f=60\unit{Hz}$), $RC=10^4\unit{\Omega}\cdot3.3\unit{\mu F}=0.033\unit{k\Omega\cdot F}$, $t\in[0,\dfrac{1}{120}]\unit{s}$, so $\dfrac{t}{RC}$ is not very small, we can find some exponential curves in the figure.\\[-0.5em]
-
-In Figure \ref{fig-2-1-2}, $t\in[0,5\times10^{-5}]\unit{s}$, $\dfrac{t}{RC}$ becomes very small, so the exponential curve converges to a straight line.\\[-0.5em]
-
-In Figure \ref{fig-2-1-3}, $\dfrac{t}{RC}$ becomes even smaller. However, it is out of our expectation that the curve begins to behave a damping status. In theorem, it is impossible to happen according to the equation above.\\[-0.5em]
-
-In Figure \ref{fig-2-1-4}, the curve becomes more strange, and it converges to a sine wave. \\
-
-
-For the 0.082$\unit{\mu F}$ capacitor, the figure was shown in Figure \ref{fig-2-2}.
-
-%\begin{figure}[htbp]
-%	\centering
-%	\subfigure[60 Hz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_18.png}
-%		\label{fig-2-2-1}
-%	}
-%	\subfigure[10 kHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_19.png}
-%		\label{fig-2-2-2}
-%	}
-%	\subfigure[1 MHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_20.png}
-%		\label{fig-2-2-3}
-%	}
-%	\subfigure[10 MHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_21.png}
-%		\label{fig-2-2-4}
-%	}
-%	\caption{0.082$\unit{\mu F}$ capacitor}
-%	\label{fig-2-2}
-%\end{figure}
-
-When the capacity of the capacitor becomes smaller, the overview of the figures doesn't change much. And in Figure \ref{fig-2-2-1}, the appearance of a more identical exponential curve is related to the increase of $\dfrac{t}{RC}$.
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/dc-iv.eps}
+	\caption{DC IV-Characteristics}
+	\label{fig-2-3}
+\end{figure}
 
 \newpage
+According to the graph, the $V_on$ is around 0.5$V$,which corresponding to the value we get in the AC part.
 
-\subsection{Inductor}
+\subsection{Back-to-back diodes}
 
-We use the follwing circuit.
+In Pspice, we simulate the behavior of two diodes which is connected back to back under different amplitudes, which was shown in Figure \ref{fig-3-1}, Figure \ref{fig-3-2}, Figure \ref{fig-3-3} and Figure \ref{fig-3-4}.
 
-\begin{center}
-\begin{tikzpicture}[circuit ee IEC,set resistor graphic=var resistor IEC graphic]
-\draw (0,0) to [resistor={info=R}] (2,0);
-\draw (-2,0) to [inductor={info=L}] (0,0);
-\draw (1,1) node (V) [draw,circle] {V};
-\draw (0,0) -- (0,1) -- (V) -- (2,1) -- (2,0);
-\draw (2,0) -- (3,0);
-\end{tikzpicture}
-\end{center}
+The chosen diode is D1N4148.
 
-%\begin{figure}[htbp]
-%	\centering
-%	\subfigure[10 Hz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_22.png}
-%		\label{fig-3-1}
-%	}
-%	\subfigure[10 kHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_23.png}
-%		\label{fig-3-2}
-%	}
-%	\subfigure[10 MHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_24.png}
-%		\label{fig-3-3}
-%	}
-%	\subfigure[30 MHz]{
-%		\includegraphics[width=0.45\linewidth]{imgs/scope_25.png}
-%		\label{fig-3-4}
-%	}
-%	\caption{Inductor}
-%	\label{fig-3}
-%\end{figure}
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/b2b1_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/b2b1_i.png}}
+	\caption{1 Vpp Back-to-back diodes}
+	\label{fig-3-1}
+\end{figure}
 
-In an RL circuit, we have the equation$$v(t)=K_1e^{-Rt/L}+K_2$$
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/b2b2_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/b2b2_i.png}}
+	\caption{2 Vpp Back-to-back diodes}
+	\label{fig-3-2}
+\end{figure}
 
-Similar to the capacitors, Figure \ref{fig-3-1} and Figure \ref{fig-3-2} satisfy the equation. However, with the increasing of frequency, the figure also converges to the sine wave.
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/b2b5_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/b2b5_i.png}}
+	\caption{5 Vpp Back-to-back diodes}
+	\label{fig-3-3}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/b2b10_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/b2b10_i.png}}
+	\caption{10 Vpp Back-to-back diodes}
+	\label{fig-3-4}
+\end{figure}
 
 \newpage
+\subsection{Face-to-face diodes}
+We simulate the behavior of two diodes connected face to face under different amplitudes, which was shown in Figure \ref{fig-4-1}, Figure \ref{fig-4-2}, Figure \ref{fig-4-3} and Figure \ref{fig-4-4}.
 
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/f2f1_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/f2f1_i.png}}
+	\caption{1 Vpp Face-to-face diodes}
+	\label{fig-4-1}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/f2f2_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/f2f2_i.png}}
+	\caption{2 Vpp Face-to-face diodes}
+	\label{fig-4-2}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/f2f5_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/f2f5_i.png}}
+	\caption{5 Vpp Face-to-face diodes}
+	\label{fig-4-3}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Voltage]{\includegraphics[width=0.45\linewidth]{imgs/f2f10_v.png}}
+	\subfigure[Current]{\includegraphics[width=0.45\linewidth]{imgs/f2f10_i.png}}
+	\caption{10 Vpp Face-to-face diodes}
+	\label{fig-4-4}
+\end{figure}
+
+\newpage
 \section{Conclusion}
 
-In the first part, we find that when the temperature and humidity rises, the resistance of the tested resistor becomes lower. According to the physics principles, a resistor made in non-metal has such property, so we guess that the resistor is made in carbon or some other non-metal materials.\\
+In the first part, we measured the turning on voltage of the diode. According to the calculation, its value is 0.74V, which is corresponding to our estimation about 0.6-0.7$V$.
 
-In the second and third part, it seems confusing to find that there is a damping, or a sine wave shown in the figure. Since the frequency is very large, the resistor in the circuit can't be identified as ideal resistor. In a non-ideal mode, a resistor can be equivalent to the following circuit.
 
-\begin{center}
-\begin{tikzpicture}[circuit ee IEC,set resistor graphic=var resistor IEC graphic]
-\draw (0,0) to [resistor={info=R}] (2,0);
-\draw (-2,0) to [inductor={info=L}] (0,0);
-\draw (0,0) -- (0,1) to [capacitor={info=C}] (2,1) -- (2,0);
-\draw (2,0) -- (3,0);
-\end{tikzpicture}
-\end{center}
+We analyze the I-V character of diode in the second section. With both AC input and DC input, we get the same value of $V_on$ which is around 0.5V. Though the shape of the graph correspond to the expected I-V character of the diode, the value is smaller than the result in the first part. The problem might be the resistance of the machine and the multimeter. Since we directly apply the value of the input voltage instead of measuring the voltage of the two end of the circuit, some error will occur during the calculation.
 
-For a typical resistor, $C\approx1\unit{pF}$, $L\approx14\unit{nH}$, when the frequency is extremely high, the circuit would become a second order RLC circuit, which have $\omega_0=\dfrac{1}{\sqrt{LC}}$, so the circuit may have a overdamped response like Figure \ref{fig-2-2-1}, or a underdamped response like Figure \ref{fig-3-4}.
+The third part measures the behaviour of two face-to-face and back-to-back diodes. As shown in the graph, the shape of current graph is a bit wield. We tried to get its character under DC input, which was shown in Figure \ref{fig-conclusion}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/conclusion.png}
+	\caption{DC IV-Characteristics of Face-to-face diodes}
+	\label{fig-conclusion}
+\end{figure}
+
+The simulation results indicate that the working voltage of face-to-face circuit becomes extremely large which is equal to the reverse breakdown voltage of the diode. As a result, the value of the current becomes very small. The increasing and decreasing part of the current is almost the same as sine wave. The resistance changing of the two diodes system causes the wield shape of the current flow. 
+
+
+
+\newpage
 
 \section{Reference}
 
@@ -321,5 +320,14 @@ For a typical resistor, $C\approx1\unit{pF}$, $L\approx14\unit{nH}$, when the fr
 \begin{enumerate}
 	\item Lab2 Manual
 \end{enumerate}
+
+\subsection{Matlab Code}
+\vspace*{1em}
+
+\begin{minipage}{0.1\linewidth}
+\end{minipage}
+\begin{minipage}{0.8\linewidth}
+    \inputminted{matlab}{p2.m}
+\end{minipage}
 
 \end{document}
