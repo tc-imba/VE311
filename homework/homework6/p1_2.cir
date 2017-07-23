@@ -1,13 +1,13 @@
 Circuit_1
 
-.TITLE Simulation of problem 1
+.TITLE Problem 1 - diff mode gain
 
-V1		2		0		SIN(0 0.25 1KHZ)
-V2		4		0		SIN(0 -0.25 1KHZ)
+V1		2		0		SIN(0 2 1KHZ)
+V2		4		0		SIN(0 -2 1KHZ)
 M1		3		2		1		0		NFET
 M2		5		4		1		0		NFET
 
-.MODEL NFET NMOS
+.MODEL NFET NMOS KP=400U VT0=1
 
 RSS		1		7		75K
 RD1		3		6		75K
@@ -22,7 +22,6 @@ VSS		7		0		DC		-15V
 .MEASURE TRAN vpp1 PP V(2)
 .MEASURE TRAN vpp2 PP par('V(3)-V(5)')
 .MEASURE TRAN diff_gain param='vpp2/vpp1'
-
 
 
 .PROBE

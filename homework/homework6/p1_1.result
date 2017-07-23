@@ -1,0 +1,53 @@
+
+Circuit: Problem 1 - common mode gain 
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: v2: no DC value, transient time 0 value used
+Warning: v1: no DC value, transient time 0 value used
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+2                                            0
+4                                            0
+3                                           15
+1                                    -0.599414
+5                                           15
+7                                          -15
+6                                           15
+pa_00                                        0
+bpa_00#branch                                0
+v1#branch                                    0
+vss#branch                         0.000232268
+vdd#branch                          -3.002e-11
+v2#branch                                    0
+
+
+
+No. of Data Rows : 200008
+
+  Measurements for Transient Analysis
+
+vpp1                =  4.000000e+00 from=  0.000000e+00 to=  0.000000e+00
+vpp2                =  7.608344e+00 from=  0.000000e+00 to=  0.000000e+00
+common_gain         =  1.90209e+00
+common_v            =  7.502625e-15
+common_i            =  0.000000e+00
+common_resist       =  7.502617e+17
+
+CPU time since last call: 1.672 seconds.
+
+Total CPU time: 1.672 seconds.
+
+Total DRAM available = 15951.468750 MB.
+DRAM currently available = 10788.121094 MB.
+Total ngspice program size = 5.671875 MB.
+Resident set size = 3.963867 MB.
+Shared ngspice pages = 1.437500 MB.
+Text (code) pages = 1.324219 MB.
+Stack = 0 bytes.
+Library pages = 2.607422 MB.
+

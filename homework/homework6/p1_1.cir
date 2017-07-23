@@ -1,13 +1,13 @@
 Circuit_1
 
-.TITLE Simulation of problem 1
+.TITLE Problem 1 - common mode gain
 
-V1		2		0		SIN(0 0.25 1KHZ)
-V2		4		0		SIN(0 0.25 1KHZ)
+V1		2		0		SIN(0 2 1KHZ)
+V2		4		0		SIN(0 2 1KHZ)
 M1		3		2		1		0		NFET
 M2		5		4		1		0		NFET
 
-.MODEL NFET NMOS KP=400U VT0=0.5
+.MODEL NFET NMOS KP=400U VT0=1
 
 RSS		1		7		62K
 RD1		3		6		62K
@@ -16,13 +16,16 @@ RD2		5		6		62K
 VDD		6		0		DC		15V
 VSS		7		0		DC		-15V
 
-.TRAN   100NS    2MS
+.TRAN   10NS    2MS
 
 *.SAVE TRAN VM(2) VM(4)
 .MEASURE TRAN vpp1 PP V(2)
 .MEASURE TRAN vpp2 PP V(3)
 .MEASURE TRAN common_gain param='vpp2/vpp1'
-
+.MEASURE TRAN common_v FIND V(2) AT=1MS
+.MEASURE TRAN common_i FIND I(V1) AT=1MS
+.MEASURE TRAN common_resist FIND par('V(2)/I(V1)') AT=1MS
+*.MEASURE TRAN common_resist AVG par('abs(V(2)/I(V1))')
 
 
 .PROBE
