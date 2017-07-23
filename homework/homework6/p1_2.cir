@@ -1,28 +1,21 @@
-Circuit_1
-
+p1_2.cir
 .TITLE Problem 1 - diff mode gain
 
-V1		2		0		SIN(0 2 1KHZ)
-V2		4		0		SIN(0 -2 1KHZ)
-M1		3		2		1		0		NFET
-M2		5		4		1		0		NFET
+V1  2   0   SIN(0 5MV 1KHZ)
+V2  4   0   SIN(0 -5MV 1KHZ)
+M1  3   2   1   1   NFET
+M2  5   4   1   1   NFET
+.MODEL NFET NMOS (KP=400U VTO=1)
+RSS 1   7   62K
+RD1 3   6   62K
+RD2 5   6   62K
+VDD 6   0   DC  15V
+VSS 7   0   DC  -15V
 
-.MODEL NFET NMOS KP=400U VT0=1
-
-RSS		1		7		75K
-RD1		3		6		75K
-RD2		5		6		75K
-
-VDD		6		0		DC		15V
-VSS		7		0		DC		-15V
-
-.TRAN   100NS    2MS
-
-*.SAVE TRAN VM(2) VM(4)
+.TRAN   10NS    1MS
 .MEASURE TRAN vpp1 PP V(2)
-.MEASURE TRAN vpp2 PP par('V(3)-V(5)')
+.MEASURE TRAN vpp2 PP par('(V(3)-V(5))/2')
 .MEASURE TRAN diff_gain param='vpp2/vpp1'
-
 
 .PROBE
 .END

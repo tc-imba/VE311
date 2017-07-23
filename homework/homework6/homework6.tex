@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{indentfirst}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+
+\usepackage{minted}
+\newcommand{\inputmintedindent}[2]{
+\begin{minipage}{0.1\linewidth}\end{minipage}
+\begin{minipage}{0.85\linewidth}\inputminted{#1}{#2}\end{minipage}\\[0.5em]
+}
+
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Problem \arabic{section}.}
+%\allowdisplaybreaks[4]
+\newcommand{\Omegacm}{{\rm\,\Omega\cdot cm}}
+\newcommand{\unit}[1]{{\rm\,#1}}
+
+\title{VE311 Homework 6}
+\author{Liu Yihao 515370910207}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{}
+
+For the common-mode gain, I wrote this SPICE circuit: \\
+
+\inputmintedindent{v}{p1_1.cir}
+
+The result of common-mode gain is $4.86588\times10^{-1}$. \\
+
+For the differential-mode gain, I wrote this SPICE circuit: \\
+
+\inputmintedindent{v}{p1_2.cir}
+
+The result of differential-mode gain is $1.81396\times10^{1}$. 
+
+$$CMRR = \frac{1.81396\times10^{1}}{2\cdot 4.86588\times10^{-1}} = 1.86395\times10^{1}$$
+
+The differential-mode and common-mode input resistances are both $+\infty$.\\
+
+
+\section{}
+
+\begin{enumerate}[(a)]
+\item
+Suppose $V_{BE}=0.7\unit{V}$,
+
+$$I_E=\frac{V_{EE}-V_{BE}}{2R_{EE}}=\frac{18\unit{V}-0.7\unit{V}}{2\cdot47\unit{k\Omega}}\approx0.184\unit{mA}$$
+$$I_C=I_E\frac{\beta_F}{\beta_F+1}=0.368\unit{mA}\cdot\frac{100}{101}\approx0.182\unit{mA}$$
+$$V_{C}=V_{CC}-I_CR_C=18\unit{V}-0.364\unit{mA}\cdot50\unit{k\Omega}\approx8.9\unit{V}$$
+$$V_{CE}=V_{C}+V_{BE}=9.6\unit{V}$$
+
+So the Q point is $(0.184\unit{mA},\ 9.6\unit{V})$.
+\item
+$$g_m=\frac{I_C}{V_T}=\frac{0.182\unit{mA}}{0.025\unit{V}}=7.28\unit{mS}$$
+$$A_{dd}=-g_mR_C=-7.28\unit{mS}\cdot50\unit{k\Omega}=364$$
+$$A_{cc}=-\frac{R_C}{2R_{EE}}=-\frac{50\unit{k\Omega}}{2\cdot47\unit{k\Omega}}\approx0.53$$
+$$CMRR = \frac{A_{dd}}{2A_{cc}} = \frac{364}{2\cdot 0.53} \approx 343$$
+
+Differential-mode:
+$$r_{id}=2r_{\pi}=2\frac{\beta_F}{g_m}=\frac{2\cdot100}{7.28\unit{mS}}\approx27.5\unit{k\Omega}$$
+$$r_{od}\approx 2R_C=100\unit{k\Omega}$$
+
+Common-mode:
+$$r_{ic}=\frac{r_{\pi}}{2}+(\beta_F+1)R_{EE}=\frac{\beta_F}{2g_m}+(\beta_F+1)R_{EE}=\frac{100}{2\cdot7.28\unit{mS}}+101\cdot47\unit{k\Omega}\approx4.75\unit{M\Omega}$$
+$$r_{oc}\approx R_C=50\unit{k\Omega}$$
+
+\end{enumerate}
+
+For the common-mode gain, I wrote this SPICE circuit: \\
+
+\inputmintedindent{v}{p2_1.cir}
+
+The result of common-mode gain is $5.25861\times10^{-1}$. \\
+
+For the differential-mode gain, I wrote this SPICE circuit: \\
+
+\inputmintedindent{v}{p2_2.cir}
+
+The result of differential-mode gain is $3.47344\times10^{2}$. 
+
+$$CMRR = \frac{3.47344\times10^{1}}{2\cdot 5.25861\times10^{-1}} = 3.30262\times10^{1}$$
+
+
+\section*{Reference}
+The simulation can be run with the following command: \\
+
+\inputmintedindent{shell}{run.sh}
+
+The results are shown below
+
+\inputmintedindent{v}{p1_1.result}
+
+\inputmintedindent{v}{p1_2.result}
+
+\inputmintedindent{v}{p2_1.result}
+
+\inputmintedindent{v}{p2_2.result}
+
+
+\end{document}
+

@@ -1,0 +1,21 @@
+p2_1.cir
+.TITLE Problem 2 - common mode gain
+
+V1  2   0   SIN(0 5MV 1KHZ)
+V2  4   0   SIN(0 5MV 1KHZ)
+Q1  3   2   1   QMOD
+Q2  5   4   1   QMOD
+.MODEL QMOD NPN (BF=100)
+REE 1   7   47K
+RC1 3   6   50K
+RC2 5   6   50K
+VDD 6   0   DC  18V
+VSS 7   0   DC  -18V
+
+.TRAN   10NS    1MS
+.MEASURE TRAN vpp1 PP V(2)
+.MEASURE TRAN vpp2 PP V(3)
+.MEASURE TRAN common_gain param='vpp2/vpp1'
+
+.PROBE
+.END

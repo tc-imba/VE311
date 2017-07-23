@@ -1,5 +1,5 @@
 
-Circuit: Problem 1 - diff mode gain 
+Circuit: Problem 2 - diff mode gain 
 
 Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
 
@@ -13,17 +13,17 @@ Node                                   Voltage
 ----                                   -------
 2                                            0
 4                                            0
-3                                      8.36573
-1                                     -1.73145
-5                                      8.36573
-7                                          -15
-6                                           15
+3                                      8.90485
+1                                    -0.730129
+5                                      8.90485
+7                                          -18
+6                                           18
 pa_00                                        0
 bpa_00#branch                                0
-vss#branch                         0.000214009
-vdd#branch                        -0.000214009
-v2#branch                                    0
-v1#branch                                    0
+vss#branch                         0.000367444
+vdd#branch                        -0.000363806
+v2#branch                         -1.81902e-06
+v1#branch                         -1.81902e-06
 
 
 
@@ -32,18 +32,18 @@ No. of Data Rows : 100008
   Measurements for Transient Analysis
 
 vpp1                =  1.000000e-02 from=  0.000000e+00 to=  0.000000e+00
-vpp2                =  1.813960e-01 from=  0.000000e+00 to=  0.000000e+00
-diff_gain           =  1.81396e+01
+vpp2                =  3.473439e+00 from=  0.000000e+00 to=  0.000000e+00
+diff_gain           =  3.47344e+02
 
-CPU time since last call: 0.732 seconds.
+CPU time since last call: 0.776 seconds.
 
-Total CPU time: 0.732 seconds.
+Total CPU time: 0.776 seconds.
 
 Total DRAM available = 7808.496094 MB.
-DRAM currently available = 223.156250 MB.
+DRAM currently available = 180.914062 MB.
 Total ngspice program size = 3.953125 MB.
-Resident set size = 2.122070 MB.
-Shared ngspice pages = 1.352539 MB.
+Resident set size = 2.251953 MB.
+Shared ngspice pages = 1.482422 MB.
 Text (code) pages = 1.324219 MB.
 Stack = 0 bytes.
 Library pages = 910.000 kB.
