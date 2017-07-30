@@ -1,0 +1,60 @@
+
+Circuit: Problem 3 
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: vi: no DC value, transient time 0 value used
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+8                                            0
+1                                            0
+x1.3                                         0
+x1.4                                         0
+x1.5                                         0
+2                                            0
+3                                            0
+4                                            0
+x2.3                                         0
+x2.4                                         0
+x2.5                                         0
+5                                            0
+6                                            0
+x3.3                                         0
+x3.4                                         0
+x3.5                                         0
+7                                            0
+pa_00                                        0
+bpa_00#branch                                0
+e.x3.ebuffer#branch                          0
+e.x3.egain#branch                            0
+e.x2.ebuffer#branch                          0
+e.x2.egain#branch                            0
+e.x1.ebuffer#branch                          0
+e.x1.egain#branch                            0
+vi#branch                                    0
+
+
+
+No. of Data Rows : 10016
+
+  Measurements for Transient Analysis
+
+vo                  =  1.196982e+01 from=  0.000000e+00 to=  0.000000e+00
+
+CPU time since last call: 0.092 seconds.
+
+Total CPU time: 0.092 seconds.
+
+Total DRAM available = 15951.468750 MB.
+DRAM currently available = 3483.707031 MB.
+Total ngspice program size = 3.418945 MB.
+Resident set size = 1.653320 MB.
+Shared ngspice pages = 1.406250 MB.
+Text (code) pages = 1.324219 MB.
+Stack = 0 bytes.
+Library pages = 363.000 kB.
+

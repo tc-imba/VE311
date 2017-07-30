@@ -1,0 +1,32 @@
+p3.cir
+.TITLE Problem 3
+
+Vi  8   0   SIN(0 100V 95.5HZ)
+R0  8   1   10K
+X1  1   0   2   OPAMP1
+R1  1   2   10K
+C1  1   2   20U
+R2  2   3   10K
+C2  3   4   4.7M
+X2  4   0   5   OPAMP1
+R3  4   5   10K
+RI  5   6   10K
+X3  6   0   7   OPAMP1
+Rf  6   7   100K
+
+
+.SUBCKT OPAMP1  1   2   6
+RIN     1   2   10MEG
+EGAIN   3   0   1   2   100K
+RP1     3   4   1K
+CP1     4   0   1.5915UF
+EBUFFER 5   0   4   0   1
+ROUT    5   6   10
+.ENDS
+
+.TRAN   1MS    10S
+.MEASURE TRAN vo PP par('V(7)/2')
+
+.PROBE
+.END
+
