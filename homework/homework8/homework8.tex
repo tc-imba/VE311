@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{indentfirst}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+
+\usepackage{minted}
+
+\geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=4.0cm}
+\renewcommand{\thesection}{Problem \arabic{section}.}
+%\allowdisplaybreaks[4]
+\newcommand{\Omegacm}{{\rm\,\Omega\cdot cm}}
+\newcommand{\unit}[1]{{\rm\,#1}}
+
+\title{VE311 Homework 8}
+\author{Liu Yihao 515370910207}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{}
+$$g_mV=\frac{V_I-V}{R_I+1/C_1s}-\frac{V}{R_S}$$
+$$V=\frac{\dfrac{V_I}{R_I+1/C_1s}}{g_m+\dfrac{1}{R_I+1/C_1s}+\dfrac{1}{R_S}}=V_I\cdot\frac{R_S}{R_S+(g_mR_S+1)(R_I+1/C_1s)}$$
+
+$$V_O=g_mV\cdot\frac{R_D}{R_D+R_3+1/C_2s}\cdot R_3$$
+\begin{align*}
+\frac{V_O}{V_I}&=g_m\cdot\frac{R_S}{R_S+(g_mR_S+1)(R_I+1/C_1s)}\cdot\frac{R_D}{R_D+R_3+1/C_2s}\cdot R_3\\
+&=\frac{g_mR_SR_DR_3C_1sC_2s}{[C_1s(R_S+R_I+g_mR_SR_I)+g_mR_S+1][C_2s(R_D+R_3)+1]}
+\end{align*}
+
+$$\omega_{z_1}=\omega_{z_2}=0$$
+$$\omega_{p_1}=-\frac{g_mR_s+1}{C_1(R_S+R_I+g_mR_SR_I)}\approx-569.91\unit{rad/s}$$
+$$\omega_{p_2}=-\frac{1}{C_2(R_D+R_3)}\approx-9.59\unit{rad/s}$$
+$$f_c=\frac{\omega_{p_1}+\omega_{p_2}}{2\pi}\approx92.23\unit{Hz}$$
+$$A_{mid}=\frac{g_m(R_D\parallel R_3)}{1+g_m(R_I\parallel R_S)}\cdot\frac{R_S}{R_I+R_S}\approx9.57$$
+
+\section{}
+$$g_m=\frac{I_C}{V_T}=\frac{1\unit{mA}}{0.025\unit{V}}=40\unit{mS}$$
+$$c_\pi=\frac{g_m}{2\pi f_T}=\frac{40\unit{mS}}{2\pi\cdot500\unit{MHz}}\approx12.73\unit{pF}$$
+$$r_\pi=\frac{\beta_0}{g_m}=\frac{100}{40\unit{mS}}=2.5\unit{k\Omega}$$
+$$r_{\pi_0}=(R_I\parallel R_B+r_x)\parallel r_\pi=[(1\parallel7.5+0.3)\parallel 2.5]\unit{k\Omega}\approx802\unit{\Omega}$$
+$$R_L=R_C\parallel R_3=4.123\unit{k\Omega}$$
+$$c_T=c_\pi+c_\mu\left(1+g_mR_L+\frac{R_L}{r_{\pi_0}}\right)=12.73\unit{pF}+0.75\unit{pF}\left(1+40\unit{mS}\cdot4.123\unit{k\Omega}+\frac{4.123\unit{k\Omega}}{802\unit{\Omega}}\right)\approx141.03\unit{pF}$$
+$$f_{p_1}=\frac{1}{2\pi r_{\pi_0}c_T}=\frac{1}{2\pi\cdot802\unit{\Omega}\cdot141.03\unit{pF}}\approx1.41\unit{MHz}$$
+$$f_{p_2}=\frac{g_m}{2\pi c_\pi}=\frac{40\unit{mS}}{2\pi\cdot12.73\unit{pF}}\approx500.09\unit{MHz}$$
+
+$$f_H=f_{p_1}=1.41\unit{MHz}$$
+$$A_{mid}=\frac{R_L[R_B\parallel(r_\pi+r_x)]}{R_I+[R_B\parallel(r_\pi+r_x)]}\cdot\frac{-g_mr_\pi}{r_\pi+r_x}\approx-98.79$$
+$$GBW=|A_{mid}|f_H=139.29\unit{MHz}$$
+
+\section{}
+
+The dc equivalent circuit is
+\begin{center}
+\begin{tikzpicture}[circuit ee IEC,set resistor graphic=var resistor IEC graphic]
+\draw (-0.5,0) to [resistor={ohm=7.5k,info'=$R_{EQ}$}] (-3,0);
+\draw (-3,0) to [voltage source={direction info={volt=3},info'=$V_{EQ}$}] (-3,-3);
+\draw (3,1) to [voltage source={direction info={volt=12},info'=$V_{CC}$}] (3,-3);
+\draw (3,1) to [resistor={ohm=4.3k,info'=$R_C$}] ( 0,1);
+\draw (0,-0.5) to [resistor={ohm=1.3k,info'=$R_E$}] (0,-3);
+\draw [very thick] (-0.5,0.5) -- (-0.5,-0.5);
+\draw (-3,-3) -- (3,-3) (0,1) -- (0,0.5) -- (-0.5, 0.3);
+\draw[-{Latex}] (-0.5,-0.3) -- (0,-0.5);
+\draw (0,-3.5) node (gnd) [ground,point down] {};
+\draw (gnd) -- (0,-3);
+\end{tikzpicture}
+\end{center}
+
+Suppose $V_{BE}=0.7V$,
+$$I_C=\frac{V_{EQ}-V_{BE}}{\dfrac{R_{EQ}}{\beta_0}+\dfrac{\beta_0+1}{\beta_0}R_E}=\frac{3\unit{V}-0.7\unit{V}}{\dfrac{7.5\unit{k\Omega}}{100}+\dfrac{100+1}{100}\cdot1.3\unit{k\Omega}}\approx1.657\unit{mA}$$
+$$I_E=\frac{V_{EQ}-V_{BE}}{\dfrac{R_{EQ}}{\beta_0+1}+R_E}=\frac{3\unit{V}-0.7\unit{V}}{\dfrac{7.5\unit{k\Omega}}{100+1}+1.3\unit{k\Omega}}\approx1.673\unit{mA}$$
+$$V_{CE}=V_{CC}-I_CR_C-I_ER_E=12\unit{V}-1.657\unit{mA}\cdot4.3\unit{k\Omega}-1.673\unit{mA}\cdot1.3\unit{k\Omega}=2.7\unit{V}$$
+
+So the $Q$ point is $(1.657\unit{mA},\ 2.7\unit{V})$.
+
+$$g_m=\frac{I_C}{V_T}=\frac{1.657\unit{mA}}{0.025\unit{V}}=66.28\unit{mS}$$
+$$r_\pi=\frac{\beta_0V_T}{I_C}=\frac{100\cdot0.025\unit{V}}{1.657\unit{mA}}\approx1.508\unit{k\Omega}$$
+$$r_{\pi_0}=[(R_{EQ}\parallel R_I)+r_x]\parallel[r_\pi+(\beta_0+1)R_E]=[(7.5\parallel 0.25+0.35)\parallel(1.508+101\cdot0.2)]\unit{k\Omega}\approx576\unit{\Omega}$$
+$$R_L=R_C\parallel R_3=(4.3\parallel47)\unit{k\Omega}=3.94\unit{k\Omega}$$
+$$c_\pi=\frac{g_m}{2\pi f_T}-c_\mu=\frac{66.28\unit{mS}}{2\pi\cdot200\unit{MHz}}-1\unit{pF}\approx51.74\unit{pF}$$
+$$c_T=\frac{c_\pi}{1+g_mR_{E}}+c_\mu\left(1+\frac{g_mR_L}{1+g_mR_E+}+\frac{R_L}{r_{\pi_0}}\right)\approx29.79\unit{pF}$$
+
+For $f_H$,
+$$f_{p_1}=\frac{1}{2\pi r_{\pi_0}c_T}=\frac{1}{2\pi\cdot576\unit{\Omega}\cdot29.79\unit{pF}}\approx9.275\unit{MHz}$$
+$$f_{p_2}=\frac{g_m}{2\pi(1+g_mR_E)c_\pi}=\frac{66.28\unit{mS}}{2\pi\cdot(1+66.28\unit{mS}\cdot200\unit{\Omega})\cdot51.74\unit{pF}}\approx14.30\unit{MHz}$$
+$$f_{z}=\frac{g_m}{2\pi(1+g_mR_E)c_\mu}=\frac{66.28\unit{mS}}{2\pi\cdot(1+66.28\unit{mS}\cdot200\unit{\Omega})\cdot1\unit{pF}}\approx739.95\unit{MHz}$$
+$$f_H=\frac{1}{\sqrt{f_{p_1}^{-2}+f_{p_2}^{-2}-2f_{z}^{-2}}}\approx7.78\unit{MHz}$$
+
+For $f_L$,
+$$R_{iB}=r_\pi+r_x+(\beta_0+1)R_E=(1.508+0.35+101\cdot0.2)\unit{k\Omega}=22.06\unit{k\Omega}$$
+$$R_{1s}=R_I+R_{EQ}\parallel R_{iB}=(0.25+7.5\parallel22.06)\unit{k\Omega}\approx5.85\unit{k\Omega}$$
+$$R_{2s}=R_3+R_C=(4.3+47)\unit{k\Omega}=51.3\unit{k\Omega}$$
+$$R_{3s}=R_{E2}\parallel\left[\frac{r_\pi+r_x+R_I\parallel R_{EQ}}{\beta_0+1}+R_{E1}\right]\approx184\unit{\Omega}$$
+$$f_L=\frac{1}{2\pi(R_{1s}C_1)}+\frac{1}{2\pi(R_{2s}C_2)}+\frac{1}{2\pi(R_{3s}C_3}\approx197\unit{Hz}$$
+
+For $A_{mid}$,
+$$A_{mid}=\frac{-g_mR_L}{1+g_mR_{E1}}\cdot\frac{R_{EQ}\parallel R_{iB}}{R_I+R_{EQ}\parallel R_{iB}}\cdot\frac{r_\pi+(\beta_0+1)R_{E1}}{r_\pi+r_x+(\beta_0+1)R_{E1}}\approx-17.26$$
+
+
+\section{}
+
+The SPICE code is
+
+\inputminted[linenos,xleftmargin
+=1.5em]{v}{p4.cir}
+
+The result is
+
+\inputminted[linenos,firstline=18,lastline=33,firstnumber=1,xleftmargin
+=1.5em]{v}{p4.result}
+
+So we can find the magnitude and phase of the circuit for different frequencies.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline Frequency (Hz) & Magnitude (dB) & Phase (rad) \\\hline
+2m	& -2.83617e+02 & -6.729757e-04 \\\hline
+1	& -6.81302e+01 & -3.238677e-01 \\\hline
+50k	&  6.00150e+01 & -8.084412e-02 \\\hline
+2G	& -9.52964e+01 & -1.020581e+00 \\\hline
+\end{tabular}
+\end{center}
+
+And the cut-off frequencies (Hz) are $f_1=3.70283e+02$ and $f_2=6.74390e+05$. When the input frequency is in the range of cut-off frequencies, the magnitude is high. Otherwise, the magnitude is very low.
+
+\end{document}
+

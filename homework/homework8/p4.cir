@@ -1,0 +1,59 @@
+p4.cir
+.TITLE Problem 4
+
+Vi  12  0   AC  10V
+RI  12  1   10K
+C1  1   2   0.01U
+RG  0   2   1MEG
+RS1 0   3   200
+C2  0   3   47U
+RD1 4   5   620
+R2  0   6   22K
+C3  4   6   1U
+R1  5   6   78K
+RE2 0   7   1.5K
+C4  0   7   22U
+RC2 5   8   4.7K
+R4  0   9   120K
+C5  8   9   1U
+R3  5   9   91K
+RE3 0   10  3.3K
+RL  0   11  250
+C6  10  11  22U
+VDD 5   0   DC  15V
+
+M1  4   2   3   3   NFET
+Q1  8   6   7   QMOD1
+Q2  5   9   10  QMOD2
+
+CA  2   3   5P
+CB  2   4   1P                                            
+
+.MODEL NFET NMOS (LAMBDA=0.02 VTO=-2 KP=10M)
+.MODEL QMOD1 NPN (BF=150 RB=250 VAF=80 TF=0.575N CJC=1.89P)
+.MODEL QMOD2 NPN (BF=150 RB=250 VAF=80 TF=0.628N CJC=2.22P)
+
+.AC DEC 100 1M 5G 
+.MEASURE AC vo1 FIND VM(11) AT=2M
+.MEASURE AC vo2 FIND VM(11) AT=1
+.MEASURE AC vo3 FIND VM(11) AT=50K
+.MEASURE AC vo4 FIND VM(11) AT=2G
+.MEASURE AC vmax MAX V(11)
+
+.MEASURE AC f1 WHEN VM(11)='1.003815e+04/sqrt(2)' RISE=1
+.MEASURE AC f2 WHEN VM(11)='1.003815e+04/sqrt(2)' FALL=1
+
+.FUNC amp(x) {20*ln(x/10)/ln(10)}
+.MEASURE AC a1 param='amp(vo1)'
+.MEASURE AC a2 param='amp(vo2)'
+.MEASURE AC a3 param='amp(vo3)'
+.MEASURE AC a4 param='amp(vo4)'
+
+.MEASURE AC p1 FIND VP(11) AT=2M
+.MEASURE AC p2 FIND VP(11) AT=1
+.MEASURE AC p3 FIND VP(11) AT=50K
+.MEASURE AC p4 FIND VP(11) AT=2G
+
+.PROBE
+.END
+

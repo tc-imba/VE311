@@ -1,0 +1,48 @@
+
+Circuit: Problem 4 
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: vi: has no value, DC 0 assumed
+Warning: can't parse 'vm': ignored
+Warning: can't parse 'vm': ignored
+Warning: can't parse 'vm': ignored
+Warning: can't parse 'vm': ignored
+Warning: can't parse 'vm': ignored
+Warning: can't parse 'vm': ignored
+Warning: can't parse 'vp': ignored
+Warning: can't parse 'vp': ignored
+Warning: can't parse 'vp': ignored
+Warning: can't parse 'vp': ignored
+
+
+No. of Data Rows : 1270
+vo1                 =  6.593746e-14
+vo2                 =  3.921827e-03
+vo3                 =  1.001733e+04
+vo4                 =  1.718621e-04
+vmax                =  1.003815e+04 at=  1.584893e+04
+f1                  =   3.70283e+02
+f2                  =   6.74390e+05
+a1                  =  -2.83617e+02
+a2                  =  -6.81302e+01
+a3                  =  6.00150e+01
+a4                  =  -9.52964e+01
+p1                  =  -6.729757e-04
+p2                  =  -3.238677e-01
+p3                  =  -8.084412e-02
+p4                  =  -1.020581e+00
+
+CPU time since last call: 0.024 seconds.
+
+Total CPU time: 0.024 seconds.
+
+Total DRAM available = 7808.492188 MB.
+DRAM currently available = 2390.312500 MB.
+Total ngspice program size = 3.385742 MB.
+Resident set size = 1.535156 MB.
+Shared ngspice pages = 1.309570 MB.
+Text (code) pages = 1.324219 MB.
+Stack = 0 bytes.
+Library pages = 329.000 kB.
+
